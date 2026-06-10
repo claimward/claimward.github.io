@@ -45,7 +45,7 @@
     <div class="wrap">
       <h2>How it works</h2>
       <ol>
-        <li><strong>Sign in.</strong> The client runs an OIDC PKCE flow in your browser and gets an ID token.</li>
+        <li><strong>Sign in.</strong> The client authenticates with GitHub (or any OIDC provider) in your browser.</li>
         <li><strong>Enroll.</strong> It sends its WireGuard public key to the server with that token.</li>
         <li><strong>Authorize.</strong> The server verifies the token, allocates an address, and adds the device as a peer on the gateway.</li>
         <li><strong>Connect.</strong> The client brings up an encrypted WireGuard tunnel into your private network.</li>

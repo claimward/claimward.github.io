@@ -15,8 +15,8 @@ disableKinds = ["taxonomy", "term"]
 
   [[params.features]]
     icon = "🔐"
-    title = "Standards-based auth"
-    body = "Any OIDC provider — Google, Okta, Entra, Keycloak, Dex. PKCE browser login, no passwords on the wire."
+    title = "Auth you already have"
+    body = "GitHub out of the box (OAuth device flow), or any OIDC provider — Google, Okta, Entra, Keycloak. No passwords on the wire."
 
   [[params.features]]
     icon = "⚡"
