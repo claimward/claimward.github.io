@@ -1,5 +1,7 @@
 # claimward.github.io
 
+[![Deploy](https://github.com/claimward/claimward.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/claimward/claimward.github.io/actions/workflows/hugo.yml) [![Site](https://img.shields.io/website?url=https%3A%2F%2Fclaimward.github.io%2F&label=site)](https://claimward.github.io/)
+
 The Claimward landing page, built with [Hugo](https://gohugo.io/) and published
 to GitHub Pages at <https://claimward.github.io/>.
 
