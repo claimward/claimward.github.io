@@ -1,0 +1,44 @@
+baseURL = "https://claimward.github.io/"
+defaultContentLanguage = "en"
+title = "Claimward"
+enableRobotsTXT = true
+
+# Single-page landing site: no tag/category taxonomy pages.
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Self-hosted Zero-Trust WireGuard VPN with OIDC."
+  tagline = "Zero-Trust access to your network, on your terms."
+  subtitle = "Claimward authenticates users with your identity provider and brings up a per-device WireGuard tunnel to your private network. Self-hosted, open source, written in Go."
+  docsURL = "https://claimward.github.io/docs/"
+  githubURL = "https://github.com/claimward"
+
+  [[params.features]]
+    icon = "🔐"
+    title = "Standards-based auth"
+    body = "Any OIDC provider — Google, Okta, Entra, Keycloak, Dex. PKCE browser login, no passwords on the wire."
+
+  [[params.features]]
+    icon = "⚡"
+    title = "WireGuard fast"
+    body = "Modern, lean, kernel-grade crypto. One peer per device, scoped routes, leases that expire on their own."
+
+  [[params.features]]
+    icon = "🧩"
+    title = "Self-hosted & open"
+    body = "Run the control plane on your own gateway. BSD-3-Clause. No SaaS, no lock-in, no telemetry."
+
+  [[params.components]]
+    name = "claimward-vpn-server"
+    body = "Control plane: verifies OIDC tokens, allocates addresses, programs the WireGuard gateway."
+    url = "https://github.com/claimward/claimward-vpn-server"
+
+  [[params.components]]
+    name = "claimward-vpn-client"
+    body = "Shared Go core (protocol, OIDC, tunnel) and the claimward CLI."
+    url = "https://github.com/claimward/claimward-vpn-client"
+
+  [[params.components]]
+    name = "claimward-vpn-app-osx"
+    body = "macOS app: Go tray + Svelte webview UI + privileged WireGuard helper."
+    url = "https://github.com/claimward/claimward-vpn-app-osx"
