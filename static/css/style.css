@@ -33,7 +33,9 @@ a:hover { text-decoration: underline; }
   backdrop-filter: blur(8px);
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-.brand { font-weight: 700; color: var(--fg); font-size: 18px; }
+.brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; color: var(--fg); font-size: 18px; }
+.brand img { display: block; width: 28px; height: 28px; }
+.brand:hover { text-decoration: none; }
 .nav nav a { margin-left: 22px; color: var(--muted); }
 .nav nav a:hover { color: var(--fg); text-decoration: none; }
 
