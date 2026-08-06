@@ -1,4 +1,5 @@
-:root {
+/* Dark is the default theme (also the fallback before the toggle script runs). */
+:root, :root[data-theme="dark"] {
   --bg: #0d0d1c;
   --bg2: #14142b;
   --fg: #f5f5fa;
@@ -7,6 +8,38 @@
   --accent2: #7c8cff;
   --card: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.09);
+  --nav-bg: rgba(13, 13, 28, 0.85);
+  --hero-top: #2a2a52;
+}
+
+/* Light tokens. */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --bg2: #f4f5fb;
+  --fg: #14142b;
+  --muted: #55556e;
+  --accent: #4a5bff;
+  --accent2: #3a4be0;
+  --card: rgba(20, 20, 43, 0.035);
+  --border: rgba(20, 20, 43, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --hero-top: #dfe3ff;
+}
+
+/* System (no explicit choice): follow the OS preference. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #ffffff;
+    --bg2: #f4f5fb;
+    --fg: #14142b;
+    --muted: #55556e;
+    --accent: #4a5bff;
+    --accent2: #3a4be0;
+    --card: rgba(20, 20, 43, 0.035);
+    --border: rgba(20, 20, 43, 0.12);
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --hero-top: #dfe3ff;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -29,21 +62,34 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: rgba(13, 13, 28, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(8px);
 }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
 .brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; color: var(--fg); font-size: 18px; }
 .brand img { display: block; width: 28px; height: 28px; }
 .brand:hover { text-decoration: none; }
+.nav nav { display: inline-flex; align-items: center; }
 .nav nav a { margin-left: 22px; color: var(--muted); }
 .nav nav a:hover { color: var(--fg); text-decoration: none; }
+.theme-toggle {
+  margin-left: 22px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--fg); border-color: var(--accent2); }
 
 /* Hero */
 .hero {
   text-align: center;
   padding: 110px 0 90px;
-  background: radial-gradient(120% 90% at 50% 0%, #2a2a52 0%, var(--bg2) 55%, var(--bg) 100%);
+  background: radial-gradient(120% 90% at 50% 0%, var(--hero-top) 0%, var(--bg2) 55%, var(--bg) 100%);
 }
 .hero h1 {
   font-size: clamp(32px, 5vw, 54px);
