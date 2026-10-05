@@ -7,21 +7,34 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "Self-hosted Zero-Trust WireGuard VPN with OIDC."
+  description = "Self-hosted Zero-Trust WireGuard VPN: sign in with GitHub, OIDC or go-authn, apps for macOS, Linux and Windows."
   tagline = "Zero-Trust access to your network, on your terms."
-  subtitle = "Claimward authenticates users with your identity provider and brings up a per-device WireGuard tunnel to your private network. Self-hosted, open source, written in Go."
+  subtitle = "Claimward authenticates users with your identity provider and brings up a per-device WireGuard tunnel to your private network, from macOS, Linux and Windows. Self-hosted, open source, written in Go."
   docsURL = "https://claimward.github.io/docs/"
+  # The docs are versioned: /docs/ itself only redirects to latest/, so a
+  # deep link has to name the version.
+  getStartedURL = "https://claimward.github.io/docs/latest/getting-started/"
   githubURL = "https://github.com/claimward"
 
   [[params.features]]
     icon = "🔐"
     title = "Auth you already have"
-    body = "GitHub out of the box (OAuth device flow), or any OIDC provider — Google, Okta, Entra, Keycloak. No passwords on the wire."
+    body = "GitHub out of the box (OAuth device flow), any OIDC provider — Google, Okta, Entra, Keycloak — or go-authn in front of a SAML federation such as RENATER or eduGAIN, where each device's WireGuard key is registered by its owner. No passwords on the wire."
 
   [[params.features]]
     icon = "⚡"
     title = "WireGuard fast"
-    body = "Modern, lean, kernel-grade crypto. One peer per device, scoped routes, leases that expire on their own."
+    body = "Modern, lean crypto: kernel WireGuard on the gateway, wireguard-go on the devices. One peer per device, scoped routes, leases that expire on their own."
+
+  [[params.features]]
+    icon = "🏢"
+    title = "Tenants"
+    body = "A person may belong to several tenants — matched on email domain, groups or institution — and chooses one per session. Each tenant's routes are pushed to its devices live, over gRPC on TLS."
+
+  [[params.features]]
+    icon = "🛡️"
+    title = "A helper that trusts its own config"
+    body = "The tunnel is owned by a small privileged helper that enrolls only with the servers its root-owned configuration names, takes no tunnel settings from a request, and listens on a socket one group can reach."
 
   [[params.features]]
     icon = "🧩"
@@ -30,15 +43,25 @@ disableKinds = ["taxonomy", "term"]
 
   [[params.components]]
     name = "claimward-vpn-server"
-    body = "Control plane: verifies OIDC tokens, allocates addresses, programs the WireGuard gateway."
+    body = "Control plane: verifies GitHub, OIDC or go-authn tokens, places the device in a tenant, allocates addresses, programs the WireGuard gateway, streams route updates."
     url = "https://github.com/claimward/claimward-vpn-server"
 
   [[params.components]]
     name = "claimward-vpn-client"
-    body = "Shared Go core (protocol, OIDC, tunnel) and the claimward CLI."
+    body = "Shared Go library: wire protocol, sign-in, tunnel, and the app core and privileged helper all three apps are built on. It ships no binary."
     url = "https://github.com/claimward/claimward-vpn-client"
 
   [[params.components]]
     name = "claimward-vpn-app-osx"
-    body = "macOS app: Go tray + Svelte webview UI + privileged WireGuard helper."
+    body = "macOS app: Go tray + Svelte webview UI + privileged helper (LaunchDaemon). A DMG on each release."
     url = "https://github.com/claimward/claimward-vpn-app-osx"
+
+  [[params.components]]
+    name = "claimward-vpn-app-linux"
+    body = "Linux app: window and tray drawn in pure Go (go-widgets, no cgo), helper under a hardened systemd unit."
+    url = "https://github.com/claimward/claimward-vpn-app-linux"
+
+  [[params.components]]
+    name = "claimward-vpn-app-windows"
+    body = "Windows app: window and tray drawn in pure Go (go-widgets, no cgo), helper as a service, tunnel on a Wintun adapter."
+    url = "https://github.com/claimward/claimward-vpn-app-windows"

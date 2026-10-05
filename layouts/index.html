@@ -30,7 +30,7 @@
       <h1>{{ .Site.Params.tagline }}</h1>
       <p class="lead">{{ .Site.Params.subtitle }}</p>
       <div class="cta">
-        <a class="btn primary" href="{{ .Site.Params.docsURL }}getting-started/">Get started</a>
+        <a class="btn primary" href="{{ .Site.Params.getStartedURL }}">Get started</a>
         <a class="btn ghost" href="{{ .Site.Params.githubURL }}">View on GitHub</a>
       </div>
     </div>
@@ -52,10 +52,10 @@
     <div class="wrap">
       <h2>How it works</h2>
       <ol>
-        <li><strong>Sign in.</strong> The client authenticates with GitHub (or any OIDC provider) in your browser.</li>
-        <li><strong>Enroll.</strong> It sends its WireGuard public key to the server with that token.</li>
-        <li><strong>Authorize.</strong> The server verifies the token, allocates an address, and adds the device as a peer on the gateway.</li>
-        <li><strong>Connect.</strong> The client brings up an encrypted WireGuard tunnel into your private network.</li>
+        <li><strong>Sign in.</strong> The app signs you in with GitHub, an OIDC provider or go-authn, in your browser.</li>
+        <li><strong>Enroll.</strong> Its privileged helper sends the device's WireGuard public key, with that token and the tenant you chose, to a server its own configuration names.</li>
+        <li><strong>Authorize.</strong> The server verifies the token (with go-authn, also that the key was registered by the same person), checks the tenant, allocates an address, and adds the device as a peer on the gateway.</li>
+        <li><strong>Connect.</strong> The helper brings up an encrypted WireGuard tunnel into your private network, and the tenant's route changes reach it live.</li>
       </ol>
     </div>
   </section>
