@@ -29,7 +29,7 @@ disableKinds = ["taxonomy", "term"]
   [[params.features]]
     icon = "🏢"
     title = "Tenants"
-    body = "A person may belong to several tenants — matched on email domain, groups or institution — and chooses one per session. Each tenant's routes are pushed to its devices live, over gRPC on TLS."
+    body = "A person may belong to several tenants — matched on verified email domain, groups, institution or named GitHub logins — and chooses one per session; a person who matches none is refused. Each tenant's routes are pushed to its devices live, over gRPC on TLS."
 
   [[params.features]]
     icon = "🛡️"
@@ -43,7 +43,7 @@ disableKinds = ["taxonomy", "term"]
 
   [[params.components]]
     name = "claimward-vpn-server"
-    body = "Control plane: verifies GitHub, OIDC or go-authn tokens, places the device in a tenant, allocates addresses, programs the WireGuard gateway, streams route updates."
+    body = "Control plane: verifies GitHub, OIDC or go-authn tokens, places the device in a tenant, allocates addresses, programs the WireGuard gateway (Linux with nftables, or OpenBSD with pf), streams route updates."
     url = "https://github.com/claimward/claimward-vpn-server"
 
   [[params.components]]
