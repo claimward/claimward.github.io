@@ -43,7 +43,7 @@ disableKinds = ["taxonomy", "term"]
 
   [[params.components]]
     name = "claimward-vpn-server"
-    body = "Control plane: verifies GitHub, OIDC or go-authn tokens, places the device in a tenant, allocates addresses, programs the WireGuard gateway (Linux with nftables, or OpenBSD with pf), streams route updates."
+    body = "Control plane: verifies GitHub, OIDC or go-authn tokens, places the device in a tenant, allocates addresses, programs the WireGuard gateway (Linux with nftables, or OpenBSD with pf, privilege-separated: a root process drives the kernel and an unprivileged, unveil- and pledge-restricted process holds the secrets), streams route updates."
     url = "https://github.com/claimward/claimward-vpn-server"
 
   [[params.components]]
