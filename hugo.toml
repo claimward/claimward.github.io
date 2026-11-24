@@ -53,7 +53,7 @@ disableKinds = ["taxonomy", "term"]
 
   [[params.components]]
     name = "claimward-vpn-app-osx"
-    body = "macOS app: Go tray + Svelte webview UI + privileged helper (LaunchDaemon). A DMG on each release."
+    body = "macOS app: native window and status item (go-widgets with the system's text fields), privileged helper (LaunchDaemon); a notification when the tunnel drops. A DMG on each release."
     url = "https://github.com/claimward/claimward-vpn-app-osx"
 
   [[params.components]]
