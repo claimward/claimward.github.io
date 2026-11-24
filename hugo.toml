@@ -58,10 +58,10 @@ disableKinds = ["taxonomy", "term"]
 
   [[params.components]]
     name = "claimward-vpn-app-linux"
-    body = "Linux app: window and tray drawn in pure Go (go-widgets, no cgo), helper under a hardened systemd unit."
+    body = "Linux app: window and tray drawn in pure Go (go-widgets, no cgo), helper under a hardened systemd unit; a notification when the tunnel drops."
     url = "https://github.com/claimward/claimward-vpn-app-linux"
 
   [[params.components]]
     name = "claimward-vpn-app-windows"
-    body = "Windows app: window and tray drawn in pure Go (go-widgets, no cgo), helper as a service, tunnel on a Wintun adapter."
+    body = "Windows app: window and tray drawn in pure Go (go-widgets, no cgo), helper as a service, tunnel on a Wintun adapter; a notification when the tunnel drops."
     url = "https://github.com/claimward/claimward-vpn-app-windows"
